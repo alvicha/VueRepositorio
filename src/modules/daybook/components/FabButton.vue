@@ -14,16 +14,7 @@ export default {
       required: true,
       default: "fa-plus",
     },
-  },
-  methods: {
-    toggleIcon() {
-      if (this.iconClass === "fa fa-2x fa-plus") {
-        this.iconClass = "fa fa-2x fa-save"; // Cambiar a otro icono, por ejemplo 'fa-minus'
-      } else {
-        this.iconClass = "fa fa-2x fa-plus"; // Cambiar de vuelta al icono original
-      }
-    },
-  },
+  }
 };
 </script>
 

@@ -12,7 +12,12 @@ export default {
         {
             path: ':id',
             name: 'entry-view', //Mayor control
-            component: () => import("@/modules/daybook/view/EntryView.vue")
+            component: () => import("@/modules/daybook/view/EntryView.vue"),
+            props: (route) => {
+                return {
+                    id: route.params.id
+                }
+            }
         }
     ]
 }

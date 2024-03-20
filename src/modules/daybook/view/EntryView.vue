@@ -24,7 +24,7 @@
 
   <hr />
   <div class="d-flex flex-column px-3 h-75">
-    <textarea placeholder="¿Que sucedio hoy?"></textarea>
+    <textarea v-model="entry.text" placeholder="¿Que sucedio hoy?"></textarea>
   </div>
 
   <fab-button icon="fa-save" />
@@ -37,11 +37,40 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
+import { mapGetters } from "vuex";
+
 export default {
+  data() {
+    return {
+      entry: null,
+    };
+  },
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    loadEntry() {
+      const entry = this.getEntryById(this.id);
+      if (!entry)
+        this.$router.push({
+          name: "no-entry",
+        });
+      this.entry = entry;
+    },
+  },
   components: {
     FabButton: defineAsyncComponent(() =>
       import("@/modules/daybook/components/FabButton.vue")
     ),
+  },
+  created() {
+    this.loadEntry();
+  },
+  computed: {
+    ...mapGetters("journalModule", ["getEntryById"]), //Modulo interesado para extraer los state y su informacion
   },
 };
 </script>
