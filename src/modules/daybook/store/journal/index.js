@@ -14,3 +14,4 @@ const journalModule = {
 export default journalModule
 
 //El store se usara de cara al modulo que voy a usar manejar o relacionar con el componente como con el directorio DayBook
+//La idea de trabajar con modulos es que cuando quieras algo de eso especifico pues los tendras aqui y es mucho mas organizado y sabrás donde esta cada cosa

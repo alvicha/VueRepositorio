@@ -3,7 +3,7 @@
     <h1 class="align-self-center">No hay nada seleccionado</h1>
   </div>
 
-  <fab-button />
+  <fab-button @on:click="createNewEntry" />
 </template>
 
 <script>
@@ -14,6 +14,14 @@ export default {
     FabButton: defineAsyncComponent(() =>
       import("@/modules/daybook/components/FabButton.vue")
     ),
+  },
+  methods: {
+    async createNewEntry() {
+      return this.$router.push({
+        name: "entry-view",
+        params: { id: "new" },
+      });
+    },
   },
 };
 </script>

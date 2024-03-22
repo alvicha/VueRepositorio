@@ -8,8 +8,6 @@ export const getEntriesByTerm = (state) => (term = '') => {
 
 export const getEntryById = (state) => (id = '') => {
     const entry = state.entries.find(entry => entry.id == id);
-
-    console.log("El numero que se manda es: ", entry)
     if (!entry) return
     return { ...entry }
 }
